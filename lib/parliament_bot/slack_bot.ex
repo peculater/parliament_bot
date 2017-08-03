@@ -1,4 +1,4 @@
-defmodule ParliamentBot.Slack do
+defmodule ParliamentBot.SlackBot do
   use Slack
   alias ParliamentBot.Parser
   alias ParliamentStateMachine.StateMachine
@@ -63,6 +63,4 @@ defmodule ParliamentBot.Slack do
     IO.puts "Got a #{somethingelse.type}"
     {:ok, state}
   end
-
-
 end
