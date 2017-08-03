@@ -14,6 +14,7 @@ RUN mix compile
 
 # Install app
 ADD assets /app/assets
+RUN cd /app/assets && npm install && cd /app
 ADD priv /app/priv
 ADD config /app/config
 
