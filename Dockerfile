@@ -1,6 +1,6 @@
 # Set the Docker image you want to base your image off.
 # I chose this one because it has Elixir preinstalled.
-FROM elixir:1.4
+FROM nikolauska/phoenix:latest
 
 RUN mkdir /app
 WORKDIR /app
@@ -13,6 +13,11 @@ RUN mix deps.get
 RUN mix compile
 
 # Install app
-CMD [ "mix", "run", "--no-halt" ]
-ADD . /app
+ADD assets /app/assets
+ADD priv /app/priv
+ADD config /app/config
+
+add entrypoint.sh /app
+CMD [ "/app/entrypoint.sh" ]
+ADD lib /app/lib
 RUN mix compile
